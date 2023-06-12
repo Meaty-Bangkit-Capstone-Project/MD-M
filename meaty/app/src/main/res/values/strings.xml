@@ -1,0 +1,156 @@
+<resources>
+    <string name="app_name">Meaty</string>
+    <string name="app_name_meaty">Meaty Application</string>
+    <string name="des_app">"Check the Quality of Beef Easily"</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="signin_account">login to enter</string>
+    <string name="name">Name</string>
+    <string name="e_mail">E-mail</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="have_an_account">Have an account?</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="more_menu">More menu</string>
+    <string name="description">Description</string>
+
+    <string name="authority">com.damar.meaty</string>
+    <string name="no_permission">Did not get permissions</string>
+    <string name="choose_pic">Choose a Picture</string>
+    <string name="upload_fail">Upload failed</string>
+    <string name="upload_success">Upload success</string>
+    <string name="description_warning">Please input some description</string>
+    <string name="photo_warning">Please input a photo</string>
+    <string name="error_field_empty">Please fill all fields!</string>
+    <string name="error_minimum_password">Minimum Password is 8 character</string>
+    <string name="error_incorrect_email_password">Email or password is incorrect</string>
+    <string name="no_data">No data</string>
+    <string name="add_story">Add New Story</string>
+    <string name="story_details">Story Details</string>
+    <string name="story_list">Story List</string>
+    <string name="profil">Profil</string>
+    <string name="edit_profil">Edit Profil</string>
+    <string name="success_save">Success Save</string>
+    <string name="password">Password</string>
+    <string name="error_min_char">Minimum characters is 8</string>
+
+
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="maps">Maps</string>
+    <string name="logout">Logout</string>
+
+    <string name="timeout">Timeout</string>
+    <string name="retry">Try again</string>
+
+    <!--Shared Preference Usage-->
+    <string name="pref_name">usertoken</string>
+    <string name="user_token">user_token</string>
+    <string name="upload_token">upload_token</string>
+    <string name="story_image">Story Image</string>
+    <string name="story_preview">Story preview</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="setting">Setting</string>
+    <string name="setting_language">Setting Language</string>
+    <string name="back">back</string>
+    <string name="created_at">created at</string>
+    <string name="created_at_prefix">Create on :</string>
+    <string name="result">To Result</string>
+    <string name="gender">Gender</string>
+    <string name="region">Region</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="registration_success">Register success</string>
+    <string name="work">Work</string>
+    <string name="age">Age</string>
+    <string name="username">Username</string>
+    <string name="search">Search</string>
+    <string name="tab_all">All</string>
+    <string name="tab_recipe">Recipe</string>
+    <string name="tab_tips">Tips</string>
+    <string name="tab_lifestyle">Lifestyle</string>
+    <string name="see_all">See All</string>
+    <string name="my_profil">My Profil</string>
+    <string name="edit">Edit</string>
+    <string name="save_changes">Save changes</string>
+    <string name="change_language">Change Language</string>
+    <string name="change_display">Change Display</string>
+    <string name="save">Save</string>
+
+    <string-array name="artikel_judul">
+        <item>Ciri-Ciri Daging Sapi Segar dan Busuk yang Bisa Anda Amati</item>
+        <item>Membuat Bakso Dari Daging Beku</item>
+        <item>Resep Dendeng Sapi Kering Manis, Hasilnya Renyah</item>
+        <item>Resep Sate Maranggi yang Legit dan Nikmat</item>
+        <item>4 Ciri-ciri Daging Sapi Berkualitas Baik</item>
+        <item>Ketahui Cara Menyimpan Daging Sapi di Kulkas Supaya Tahan Lama</item>
+        <item>5 Olahan Daging Sapi Khas Timur Tengah, Dijamin Enak!</item>
+        <item>Resep Sop Daging Sapi</item>
+        <item>10 Makanan Pendamping Olahan Daging, Bisa Turunkan Kolesterol!</item>
+        <item>Cara Bersihkan Daging Sapi yang Benar, Jangan Salah Langkah</item>
+        <item>Ciri-ciri Hati Sapi yang Aman Dikonsumsi, 3 Tanda Ini Wajib Jadi Perhatian Sebelum Mengolah Hati Sapi jadi Sajian</item>
+        <item>Resep Semur Daging Sapi Lezat Sederhana</item>
+        <item>Resep Balado Daging Kering</item>
+    </string-array>
+    <string-array name="artikel_kategori">
+        <item>Seputar Tips Daging Sapi</item>
+        <item>Resep Olahan Daging Sapi</item>
+        <item>Resep Olahan Daging Sapi</item>
+        <item>Resep Olahan Daging Sapi</item>
+        <item>Resep Olahan Daging Sapi</item>
+        <item>Seputar Tips Daging Sapi</item>
+        <item>Pola Makan</item>
+        <item>Resep Olahan Daging Sapi</item>
+        <item>Pola Makan</item>
+        <item>Seputar Tips Daging Sapi</item>
+        <item>Seputar Tips Daging Sapi</item>
+        <item>Resep Olahan Daging Sapi</item>
+        <item>Resep Olahan Daging Sapi</item>
+    </string-array>
+    <string-array name="artikel_description">
+        <item>Daging sapi merupakan salah satu sumber makanan bergizi tinggi. Akan tetapi, daging mudah ditumbuhi bakteri atau jamur sehingga sangat gampang busuk. Oleh karena itu, Anda perlu lebih berhati-hati saat membeli daging. Cari tahu lebih lanjut perbedaan ciri-ciri daging sapi yang masih segar dengan yang sudah busuk.</item>
+        <item>Siapa bilang bikin baso sapi harus selalu menggunakan daging segar? pake daging beku pun ternyata bisa bun. Hasilnya tetap bagus, lembut dan kenyal. Jadi, kalau bunda pingin bikin bakso menggunakan stok daging yang ada di kulkas, bisa mencoba resep yang satu ini. Hanya dibutuhkan waktu 60 menit saja untuk membuat bakso sapi yang kenyal, lembut walopun memakai Daging frozen.</item>
+        <item>Punya stok daging sapi dalam jumlah banyak? Olah dengan mengikuti resep dendeng sapi kering manis berikut. Kamu bisa menyimpannya sebagai stok lauk tahan lama. Olah kembali dengan berbagai bumbu sesuai selera agar lebih lezat. Pada resep dendeng sapi kering ini menggunakan 250 gram gula merah untuk membuat satu kilogram dendeng sapi manis.</item>
+        <item>Meski sepertinya Indonesia baru merdeka beberapa puluh tahun yang lalu, tapi sudah begitu banyak koleksi hidangan dari seluruh Nusantara yang mewarnai perbendaharaan kulinernya. Salah satu resep jadul yang tenar hingga keluar negeri adalah Sate Maranggi. Berbeda dengan banyak resep masakan lainnya, Sate Maranggi dikenal karena penggunaan daging sapinya. Sebelumnya, daging telah dimarinasi dengan berbagai</item>
+        <item>Hidangan dengan olahan daging sapi banyak memiliki penggemar. Sebut saja sate, rendang, gulai dan masih banyak lagi, tapi enak tidaknya hidangan itu tetap dipengaruhi dengan kualitas daging.</item>
+        <item>Penting untuk kita ketahui bahwa cara menyimpan daging sapi di kulkas ternyata bisa memengaruhi kualitas dan kebersihannya. Tak hanya berpengaruh pada rasanya, rupanya kesehatan keluarga di rumah bergantung pula pada cara kita menyimpannya.</item>
+        <item>Hari raya Iduladha identik dengan penyembelihan hewan kurban seperti sapi, domba, dan kambing ini sudah pasti dinantikan banyak orang. Mayoritas orang Indonesia biasa mengolah daging kurban menjadi sate, gulai, hingga tongseng.</item>
+        <item>Semangkuk olahan resep sop daging sapi tentunya sulit untuk ditolak. Rasanya menyegarkan, menghangatkan, sekaligus mengenyangkan. </item>
+        <item>Olahan serba daging dan bersantan biasanya tersaji lengkap di meja makan saat Idul Adha, mulai dari rendang, semur daging, gulai daging dan banyak lagi. Namun, olahan daging tersebut bisa berdampak negatif bagi orang yang memiliki masalah kesehatan, seperti kolesterol dan darah tinggi.</item>
+        <item>Sebelum mengolah daging sapi, kamu perlu membersihkannya dengan baik. Berbeda dengan daging ayam misalnya, daging sapi tak memerlukan proses pencucian dengan air.</item>
+        <item>Hampir seluruh bagian daging memang bisa diolah. Tak heran jika jeroan sapi pun jadi salah satu bagian favorit dari sapi.</item>
+        <item>Resep Semur Daging Sapi Lezat Sederhana, Mudah Dibuat di Rumah\r\n\r\nDari begitu banyaknya resep semur di Indonesia, salah satu yang paling jadi favorit adalah cara membuat semur daging sapi. Sekilas mirip dengan rendang, tapi jauh berbeda. Semur daging biasanya agak berkuah dan bumbu semur daging tidak sepekat rendang.</item>
+        <item>Balado Daging Kering adalah salah satu resep balado khas Minang yang disukai banyak orang. Biasa disebut Dendeng Balado, resep Balado Daging Kering memadukan pedasnya sambal balado dan daging yang gurih renyah. Sehingga tak heran menjadi menu favorit di nusantara.</item>
+    </string-array>
+    <string-array name="artikel_photo">
+        <item>https://awsimages.detik.net.id/community/media/visual/2023/03/03/daging-sapi-impor-asal-brasil_169.jpeg?w=1200</item>
+        <item>https://3.bp.blogspot.com/-W8T4OCaaSCQ/WoOIktXCDCI/AAAAAAAAFvA/mH3AMBdU_1kYsdPCuhMyWtUnetKTMSzwQCLcBGAs/s1600/photo%2B%25284%2529.jpg</item>
+        <item>https://asset.kompas.com/crops/35N0JqeEttULA0u1LdTSnlqG51c=/0x0:1000x667/750x500/data/photo/2021/07/27/60ff965b4c862.jpeg</item>
+        <item>https://cdn-2.tstatic.net/cirebon/foto/bank/images/ilustrasi-sate-kambing1.jpg</item>
+        <item>https://asset.kompas.com/crops/MM5ZNfJFNq4O2BVrUKGtCI844rw=/0x0:1000x667/750x500/data/photo/2020/07/28/5f1f96a335077.jpg</item>
+        <item>https://www.royco.co.id/content/dam/unilever/knorr_world/indonesia/general_image/royco_id_cara_menyimpan_daging_sapi_dengan_menggunakan_kertas_pembungkus_jpg-2288105-jpg.jpg.ulenscale.838x450.jpg</item>
+        <item>https://cdn.idntimes.com/content-images/community/2022/07/whatsapp-image-2022-07-07-at-215022-c1d6eabaf1aef128b8a26b6b996d2eda-e70d4c4474af585b3ee416cfd42394b0_600x400.jpeg</item>
+        <item>https://img.okezone.com/content/2020/02/27/298/2175054/resep-sayur-sop-daging-masakan-rumahan-paling-populer-24WHr0ACJo.jpg</item>
+        <item>https://cdn.idntimes.com/content-images/community/2020/11/mandarin-orange-salad-2fd754faae71319acce29d93962f6552_600x400.jpg</item>
+        <item>https://asset.kompas.com/crops/RCy2WgGTLVZN9oF5mvEt6vobqnk=/0x31:1000x531/750x500/data/photo/2017/11/19/1677088952.jpg</item>
+        <item>https://asset-a.grid.id/crop/0x0:0x0/700x0/photo/2022/12/20/60404b6771dc8jpg-20221220074731.jpg</item>
+        <item>https://asset.kompas.com/crops/9TrbfycbiFB9YB1l2xmzYQR5srQ=/0x342:837x900/750x500/data/photo/2021/01/29/60137f833d1b4.jpg</item>
+        <item>https://kbu-cdn.com/dk/wp-content/uploads/balado-daging-kering.jpg</item>
+    </string-array>
+    <string-array name="artikel_url">
+        <item>https://hellosehat.com/nutrisi/tips-makan-sehat/ciri-ciri-daging-sapi-segar/</item>
+        <item>https://www.modern.id/2018/02/bakso-sapi-kenyal-lembut-walau-memakai.html</item>
+        <item>https://www.kompas.com/food/read/2021/07/27/201100575/resep-dendeng-sapi-kering-manis-hasilnya-renyah</item>
+        <item>https://www.masakapahariini.com/resep/resep-sate-maranggi/</item>
+        <item>https://www.kompas.com/food/read/2020/08/14/161600475/4-ciri-ciri-daging-sapi-berkualitas-baik-jangan-salah-beli</item>
+        <item>https://www.royco.co.id/royco-artikel/tips-dan-trik/Ragam-Cara-Menyimpan-Daging-Sapi-Agar-Lebih-Tahan-Lama.html</item>
+        <item>https://www.idntimes.com/food/diet/alfadhylla-rosalina-wibisono/olahan-daging-sapi-khas-timur-tengah-c1c2</item>
+        <item>https://www.bango.co.id/r/resep-sop-daging-sapi.html/242804</item>
+        <item>https://www.idntimes.com/food/diet/nia-aqilla/makanan-pendamping-daging-c1c2-1</item>
+        <item>https://www.kompas.com/food/read/2020/07/29/220200775/cara-bersihkan-daging-sapi-yang-benar-jangan-salah-langkah</item>
+        <item>https://sajiansedap.grid.id/read/103622438/ciri-ciri-hati-sapi-yang-aman-dikonsumsi-3-tanda-ini-wajib-jadi-perhatian-sebelum-mengolah-hati-sapi-jadi-sajian?page=all</item>
+        <item>https://www.bango.co.id/r/resep-semur-daging-sapi-lezat-sederhana.html/242464</item>
+        <item>https://www.dapurkobe.co.id/balado-daging-kering</item>
+    </string-array>
+
+</resources>

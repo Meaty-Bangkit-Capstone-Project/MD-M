@@ -1,0 +1,726 @@
+artikel
+
+class ArtikelFragment : Fragment() {
+
+    private var _binding: FragmentArtikelBinding? = null
+    private lateinit var binding: FragmentArtikelBinding
+    private lateinit var beritaRecyclerView: RecyclerView
+    private lateinit var artikelList: ArrayList<Artikel>
+    private lateinit var beritaAdapter: BeritaAdapter
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentArtikelBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        beritaRecyclerView = binding.bRecyclerView
+        artikelList = createSampleArtikelList()
+        beritaAdapter = BeritaAdapter(artikelList)
+
+        binding.bRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.bRecyclerView.adapter = beritaAdapter
+
+        AnimationUtil.playArtikelAnimation(binding)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        requireActivity().title = getString(R.string.story_list)
+        setHasOptionsMenu(true)
+    }
+
+    private fun createSampleArtikelList(): ArrayList<Artikel> {
+        val artikelList = ArrayList<Artikel>()
+        val judulArray = resources.getStringArray(R.array.artikel_judul)
+        val kategoriArray = resources.getStringArray(R.array.artikel_kategori)
+        val gambarArray = resources.getStringArray(R.array.artikel_photo)
+        val urlArray = resources.getStringArray(R.array.artikel_url)
+
+        for (i in judulArray.indices) {
+            val artikel = Artikel(judulArray[i], kategoriArray[i], gambarArray[i], urlArray[i])
+            artikelList.add(artikel)
+        }
+        return artikelList
+    }
+
+    inner class BeritaAdapter(private val artikelList: ArrayList<Artikel>) :
+        RecyclerView.Adapter<BeritaAdapter.BeritaViewHolder>() {
+
+        inner class BeritaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            val judulTextView: TextView = itemView.findViewById(R.id.tv_judul)
+            val kategoriTextView: TextView = itemView.findViewById(R.id.tv_kategori)
+            val gambarImageView: ImageView = itemView.findViewById(R.id.img_item_photo)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeritaViewHolder {
+            val itemView = LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_artikel, parent, false)
+            return BeritaViewHolder(itemView)
+        }
+
+        override fun onBindViewHolder(holder: BeritaViewHolder, position: Int) {
+            val berita = artikelList[position]
+            holder.judulTextView.text = berita.judul
+            holder.kategoriTextView.text = berita.kategori
+
+            Glide.with(holder.itemView)
+                .load(berita.gambarUrl)
+                .into(holder.gambarImageView)
+
+            holder.itemView.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(berita.url))
+                holder.itemView.context.startActivity(intent)
+            }
+        }
+
+        override fun getItemCount(): Int {
+            return artikelList.size
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.btn_setting -> {
+                val settingIntent = Intent(requireContext(), SettingActivity::class.java)
+                startActivity(settingIntent)
+                requireActivity().finish()
+                return true
+            }
+            R.id.btn_logout -> {
+                val sharedPref = requireContext().getSharedPreferences(getString(R.string.pref_name), Context.MODE_PRIVATE)
+                val editor = sharedPref.edit()
+                editor.putString(getString(R.string.user_token), "")
+                editor.remove(getString(R.string.upload_token))
+                editor.apply()
+
+                val logoutIntent = Intent(requireContext(), LoginActivity::class.java)
+                startActivity(logoutIntent)
+                requireActivity().finish()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    companion object {
+        var USER_TOKEN: String? = "USER_TOKEN"
+    }
+}
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/b_RecyclerView"
+        android:layout_marginBottom="60dp"
+        android:alpha="0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBarListStory"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+====
+
+main
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/darkred"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <fragment
+        android:id="@+id/av_host_fragment_activity_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:navGraph="@navigation/main_navigation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+====
+
+setting xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register.RegisterActivity">
+
+
+    <LinearLayout
+        android:id="@+id/field_text_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/splash_logo"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name_meaty"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_extrabold"
+            android:textColor="@color/darkred"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/field_setting_language"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:alpha="0"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_auten_set"
+        app:layout_constraintTop_toBottomOf="@+id/field_text_image">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Change Language"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:srcCompat="@drawable/ic_baseline_language_24"
+            android:inputType="textPersonName" />
+
+    </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/field_setting_theme"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="44dp"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginEnd="24dp"-->
+<!--        android:paddingStart="8dp"-->
+<!--        android:paddingEnd="8dp"-->
+<!--        android:gravity="center"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:background="@drawable/bg_auten_set"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/field_setting_language">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView3"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="8dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:fontFamily="@font/poppins_medium"-->
+<!--            android:text="Change Theme"-->
+<!--            android:textSize="16sp" />-->
+
+<!--        <com.google.android.material.switchmaterial.SwitchMaterial-->
+<!--            android:id="@+id/switch_theme"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="18sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    </LinearLayout>-->
+
+
+    <LinearLayout
+        android:id="@+id/field_setting_display"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:alpha="0"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_auten_set"
+        app:layout_constraintTop_toBottomOf="@+id/field_setting_language">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Change Display"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/img3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:srcCompat="@drawable/ic_baseline_display_settings_24_white"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_create_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_marginTop="350dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_setting" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+===
+
+class SettingActivity : AppCompatActivity() {
+    private lateinit var switchTheme: SwitchMaterial
+    private lateinit var sharedPreferences: SharedPreferences
+    private var _binding: ActivitySettingBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        _binding = ActivitySettingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val img1 = findViewById<LinearLayout>(R.id.field_setting_language)
+        img1.setOnClickListener {
+            changeLanguage()
+        }
+
+        val img3 = findViewById<LinearLayout>(R.id.field_setting_display)
+        img3.setOnClickListener {
+            changeDisplay()
+        }
+
+//        switchTheme = findViewById(R.id.switch_theme)
+//        sharedPreferences = getSharedPreferences("ThemePreferences", MODE_PRIVATE)
+//
+//        switchTheme.isChecked = isDarkModeActive()
+//        switchTheme.setOnCheckedChangeListener { _, isChecked ->
+//            setDarkMode(isChecked)
+//        }
+
+        AnimationUtil.playSettingAnimation(binding)
+    }
+
+    private fun isDarkModeActive(): Boolean {
+        return sharedPreferences.getBoolean("isDarkModeActive", isSystemDefaultTheme())
+    }
+
+    private fun setDarkMode(isDarkModeActive: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isDarkModeActive", isDarkModeActive)
+        editor.apply()
+
+        if (isDarkModeActive) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+    }
+
+    private fun isSystemDefaultTheme(): Boolean {
+        return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+    }
+
+    fun changeLanguage() {
+        val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+        startActivity(intent)
+    }
+
+    fun changeDisplay() {
+        val intent = Intent(Settings.ACTION_DISPLAY_SETTINGS)
+        startActivity(intent)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val mainIntent = Intent(this, MainActivity::class.java)
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(mainIntent)
+        finish()
+    }
+}
+
+token github : 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
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Switch
+        android:id="@+id/switchLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ganti Bahasa" />
+
+    <Switch
+        android:id="@+id/switchTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wr
+
+
+    card_view:cardBackgroundColor="?attr/colorSecondaryVariant"
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_description"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:ellipsize="end"-->
+<!--            android:maxLines="3"-->
+<!--            android:textColor="?android:textColorSecondary"-->
+<!--            card_view:layout_constraintBottom_toBottomOf="@+id/img_item_photo"-->
+<!--            card_view:layout_constraintEnd_toEndOf="@+id/tv_judul"-->
+<!--            card_view:layout_constraintStart_toStartOf="@+id/tv_judul"-->
+<!--            card_view:layout_constraintTop_toBottomOf="@+id/tv_judul"-->
+<!--            card_view:layout_constraintVertical_bias="0.0"-->
+<!--            tools:text="@string/description" />-->
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.BaruActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="15dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edt_nama"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@null"
+                        android:hint="Nama Lengkap"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    app:srcCompat="@drawable/ic_email_black_24dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edt_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@null"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    app:srcCompat="@drawable/ic_phone_android_black_24dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edt_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@null"
+                        android:hint="Nomor Telepon"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    app:srcCompat="@drawable/ic_lock_black_24dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:passwordToggleEnabled="true">
+
+                    <EditText
+                        android:id="@+id/edt_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@null"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_btn_login1"
+            android:text="Register"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+            <TextView
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="atau masuk dengan"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp"
+                android:background="#CACACA" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_google"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_btn_google"
+            android:padding="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_google"/>
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Google"
+                android:textColor="@color/dark"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:id="@+id/pb"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+
+</RelativeLayout>

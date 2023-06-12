@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Meaty</string>
+    <string name="app_name_meaty">Aplikasi Meaty</string>
+    <string name="des_app">"Cek Kualitas Daging Sapi Secara Mudah"</string>
+    <string name="create_new_account">Buat akun baru</string>
+    <string name="signin_account">Login untuk masuk</string>
+    <string name="name">Nama</string>
+    <string name="e_mail">E-mail</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="have_an_account">Sudah punya akun?</string>
+    <string name="don_t_have_an_account">Belum punya akun?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="more_menu">Menu lainnya</string>
+    <string name="description">Deskripsi</string>
+
+    <string name="authority">com.damar.meaty</string>
+    <string name="no_permission">Tidak mendapatkan permission</string>
+    <string name="choose_pic">Pilih gambar</string>
+    <string name="upload_fail">Upload gagal</string>
+    <string name="upload_success">Upload berhasil</string>
+    <string name="description_warning">Mohon masu kan deskripsi</string>
+    <string name="photo_warning">Mohon masukkan gambar</string>
+    <string name="error_field_empty">Mohon masukkan input!</string>
+    <string name="error_minimum_password">Minimal karakter password 8</string>
+    <string name="error_incorrect_email_password">Email atau password salah</string>
+    <string name="no_data">Tidak ada data</string>
+    <string name="add_story">Tambah cerita baru</string>
+    <string name="story_details">Detail cerita</string>
+    <string name="story_list">List Cerita</string>
+    <string name="password">Password</string>
+    <string name="error_min_char">Minimal password 8 karakter</string>
+
+
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="maps">Maps</string>
+    <string name="logout">Logout</string>
+
+    <string name="timeout">Waktu muat habis</string>
+    <string name="retry">Coba lagi</string>
+
+    <!--Shared Preference Usage-->
+    <string name="pref_name">usertoken</string>
+    <string name="user_token">user_token</string>
+    <string name="upload_token">upload_token</string>
+    <string name="story_image">Story Image</string>
+    <string name="story_preview">Story preview</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="setting">Pengaturan</string>
+    <string name="setting_language">Pengaturan bahasa</string>
+    <string name="back">Kembali</string>
+    <string name="created_at">Dibuat di</string>
+    <string name="created_at_prefix">Create pada :</string>
+    <string name="result">Lihat Hasil</string>
+    <string name="gender">Jenis kelamin</string>
+    <string name="region">Kota/Kabupaten</string>
+    <string name="gender_male">Laki laki</string>
+    <string name="gender_female">Perempuan</string>
+    <string name="registration_success">Register berhasil</string>
+    <string name="work">Pekerjaan</string>
+    <string name="age">Usia</string>
+    <string name="username">Username</string>
+    <string name="search">Cari</string>
+    <string name="tab_all">Semua</string>
+    <string name="tab_recipe">Resep</string>
+    <string name="tab_tips">Tips</string>
+    <string name="tab_lifestyle">Gaya Hidup</string>
+    <string name="see_all">Lihat Semua</string>
+    <string name="my_profil">Profil Saya</string>
+    <string name="profil">Profil</string>
+    <string name="edit">Edit</string>
+    <string name="edit_profil">Edit Profil</string>
+    <string name="save_changes">Simpan Perubahan</string>
+    <string name="change_language">Ubah Bahasa</string>
+    <string name="change_display">Ubah Tampilan</string>
+    <string name="success_save">Berhasil Menyimpan</string>
+    <string name="save">Simpan</string>
+
+</resources>

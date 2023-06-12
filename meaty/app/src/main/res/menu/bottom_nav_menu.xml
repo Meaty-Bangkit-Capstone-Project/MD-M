@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/navigation_artikel"
+        android:icon="@drawable/ic_baseline_newspaper_24"
+        android:title="Artikel" />
+
+    <item
+        android:id="@+id/navigation_scan"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_riwayat"
+        android:icon="@drawable/ic_baseline_history_24"
+        android:title="Riwayat" />
+
+    <item
+        android:id="@+id/navigation_profil"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Profile" />
+
+</menu>

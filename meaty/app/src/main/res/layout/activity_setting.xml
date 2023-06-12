@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register.RegisterActivity">
+
+
+    <LinearLayout
+        android:id="@+id/field_text_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="center"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/meaty_logo"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name_meaty"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_extrabold"
+            android:textColor="@color/darkred"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/field_setting_language"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:alpha="0"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_auten_set"
+        app:layout_constraintTop_toBottomOf="@+id/field_text_image">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/change_language"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:srcCompat="@drawable/ic_baseline_language_24"
+            android:inputType="textPersonName" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/field_setting_display"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:alpha="0"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_auten_set"
+        app:layout_constraintTop_toBottomOf="@+id/field_setting_language">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/change_display"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/img3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:srcCompat="@drawable/ic_baseline_display_settings_24_white"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_create_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_marginTop="350dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_setting" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
