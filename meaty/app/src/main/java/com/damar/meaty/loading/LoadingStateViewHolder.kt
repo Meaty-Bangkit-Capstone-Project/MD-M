@@ -1,4 +1,4 @@
-package com.damar.meaty.adapter
+package com.damar.meaty.loading
 
 import androidx.core.view.isVisible
 import androidx.paging.LoadState

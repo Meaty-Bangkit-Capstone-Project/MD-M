@@ -9,7 +9,6 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import com.damar.meaty.R
-import com.damar.meaty.customview.AnimationUtil
 import com.damar.meaty.databinding.ActivitySplashBinding
 import com.damar.meaty.login.LoginActivity
 

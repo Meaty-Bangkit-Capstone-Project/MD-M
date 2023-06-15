@@ -28,25 +28,36 @@ class FormValidator {
 
         fun isValidRegister(binding: ActivityRegisterBinding): Boolean {
             var isValid = true
-            if (binding.edRegisterName.text.toString().isEmpty()) {
-                binding.edRegisterName.error = "Nama tidak boleh kosong"
-                isValid = false
-            }
             if (binding.edRegisterUsername.text.toString().isEmpty()) {
                 binding.edRegisterUsername.error = "Username tidak boleh kosong"
                 isValid = false
             }
-            if (binding.spinnerGender.selectedItem.toString().isEmpty()) {
-                val errorText = "Jenis kelamin tidak boleh kosong"
-                (binding.spinnerGender.selectedView as TextView).error = errorText
+            if (binding.edRegisterEmail.text.toString().isEmpty()) {
+                binding.edRegisterEmail.error = "Email tidak boleh kosong"
                 isValid = false
             }
             if (binding.edRegisterPassword.text.toString().isEmpty()) {
                 binding.edRegisterPassword.error = "Password tidak boleh kosong"
                 isValid = false
             }
+            if (binding.edRegisterPassword.text.toString().length < 8) {
+                binding.edRegisterPassword.error = "Karakter password harus 8 atau lebih"
+                isValid = false
+            }
+            if (binding.edRegisterFirstName.text.toString().isEmpty()) {
+                binding.edRegisterFirstName.error = "Masukkan nama depan"
+                isValid = false
+            }
+            if (binding.edRegisterLastName.text.toString().isEmpty()) {
+                binding.edRegisterLastName.error = "Masukkan nama belakang atau masukan (-)"
+                isValid = false
+            }
             if (binding.edRegisterDomisili.text.toString().isEmpty()) {
                 binding.edRegisterDomisili.error = "Domisili tidak boleh kosong"
+                isValid = false
+            }
+            if (binding.edRegisterWork.text.toString().isEmpty()) {
+                binding.edRegisterWork.error = "Pekerjaan tidak boleh kosong"
                 isValid = false
             }
             val ageText = binding.edRegisterAge.text.toString()
@@ -60,12 +71,9 @@ class FormValidator {
                     isValid = false
                 }
             }
-            if (binding.edRegisterWork.text.toString().isEmpty()) {
-                binding.edRegisterWork.error = "Pekerjaan tidak boleh kosong"
-                isValid = false
-            }
-            if (binding.edRegisterPassword.text.toString().length < 8) {
-                binding.edRegisterPassword.error = "Karakter password harus 8 atau lebih"
+            if (binding.spinnerGender.selectedItem.toString().isEmpty()) {
+                val errorText = "Jenis kelamin tidak boleh kosong"
+                (binding.spinnerGender.selectedView as TextView).error = errorText
                 isValid = false
             }
             return isValid

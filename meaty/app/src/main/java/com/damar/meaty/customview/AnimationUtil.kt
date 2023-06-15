@@ -25,22 +25,24 @@ class AnimationUtil {
 
         fun playRegisAnimation(binding: ActivityRegisterBinding) {
             val textImageAnimator = ObjectAnimator.ofFloat(binding.fieldTextImage, View.ALPHA, 1f).setDuration(500)
-            val nameAnimator = ObjectAnimator.ofFloat(binding.fieldName, View.ALPHA, 1f).setDuration(460)
-            val usernameAnimator = ObjectAnimator.ofFloat(binding.fieldUsername, View.ALPHA, 1f).setDuration(420)
-            val genderAnimator = ObjectAnimator.ofFloat(binding.fieldGender, View.ALPHA, 1f).setDuration(380)
-            val domisiliAnimator = ObjectAnimator.ofFloat(binding.fieldDomisili, View.ALPHA, 1f).setDuration(340)
-            val ageAnimator = ObjectAnimator.ofFloat(binding.fieldAge, View.ALPHA, 1f).setDuration(300)
-            val workAnimator = ObjectAnimator.ofFloat(binding.fieldWork, View.ALPHA, 1f).setDuration(260)
-            val passwordAnimator = ObjectAnimator.ofFloat(binding.fieldPassword, View.ALPHA, 1f).setDuration(220)
-            val registerButtonAnimator = ObjectAnimator.ofFloat(binding.btnRegister, View.ALPHA, 1f).setDuration(180)
-            val textView1Animator = ObjectAnimator.ofFloat(binding.textView2, View.ALPHA, 1f).setDuration(140)
-            val textView2Animator = ObjectAnimator.ofFloat(binding.txtLogin, View.ALPHA, 1f).setDuration(100)
+            val usernameAnimator = ObjectAnimator.ofFloat(binding.fieldUsername, View.ALPHA, 1f).setDuration(470)
+            val passwordAnimator = ObjectAnimator.ofFloat(binding.fieldPassword, View.ALPHA, 1f).setDuration(440)
+            val emailAnimator = ObjectAnimator.ofFloat(binding.fieldEmail, View.ALPHA, 1f).setDuration(410)
+            val firstNameAnimator = ObjectAnimator.ofFloat(binding.fieldFirstName, View.ALPHA, 1f).setDuration(380)
+            val lastNameAnimator = ObjectAnimator.ofFloat(binding.fieldLastName, View.ALPHA, 1f).setDuration(350)
+            val domisiliAnimator = ObjectAnimator.ofFloat(binding.fieldDomisili, View.ALPHA, 1f).setDuration(320)
+            val workAnimator = ObjectAnimator.ofFloat(binding.fieldWork, View.ALPHA, 1f).setDuration(290)
+            val usiaAnimator = ObjectAnimator.ofFloat(binding.fieldAge, View.ALPHA, 1f).setDuration(260)
+            val genderAnimator = ObjectAnimator.ofFloat(binding.fieldGender, View.ALPHA, 1f).setDuration(230)
+            val registerButtonAnimator = ObjectAnimator.ofFloat(binding.btnRegister, View.ALPHA, 1f).setDuration(200)
+            val textView1Animator = ObjectAnimator.ofFloat(binding.textView2, View.ALPHA, 1f).setDuration(170)
+            val textView2Animator = ObjectAnimator.ofFloat(binding.txtLogin, View.ALPHA, 1f).setDuration(140)
 
             val togetherAnimator = AnimatorSet().apply {
                 playTogether(textView1Animator, textView2Animator)
             }
             AnimatorSet().apply {
-                playSequentially(textImageAnimator, nameAnimator, usernameAnimator, genderAnimator, domisiliAnimator, ageAnimator, workAnimator, passwordAnimator, registerButtonAnimator, togetherAnimator)
+                playSequentially(textImageAnimator, usernameAnimator, passwordAnimator, emailAnimator, firstNameAnimator, lastNameAnimator, domisiliAnimator, workAnimator, usiaAnimator, genderAnimator, registerButtonAnimator, togetherAnimator)
                 start()
             }
         }
@@ -127,7 +129,7 @@ class AnimationUtil {
 
         fun playAddScanAnimation(binding: FragmentAddScanBinding) {
             val imgScanAnimator = ObjectAnimator.ofFloat(binding.ivCreatePhoto, View.ALPHA, 1f).setDuration(520)
-            val descriptionAnimator = ObjectAnimator.ofFloat(binding.edAddDescription, View.ALPHA, 1f).setDuration(460)
+            val noteAnimator = ObjectAnimator.ofFloat(binding.edAddNotes, View.ALPHA, 1f).setDuration(460)
             val buttonCameraAnimator = ObjectAnimator.ofFloat(binding.buttonCamera, View.ALPHA, 1f).setDuration(400)
             val buttonGalleryAnimator = ObjectAnimator.ofFloat(binding.buttonGallery, View.ALPHA, 1f).setDuration(400)
             val buttonUploadAnimator = ObjectAnimator.ofFloat(binding.buttonAdd, View.ALPHA, 1f).setDuration(380)
@@ -143,21 +145,12 @@ class AnimationUtil {
             }
 
             val togetherAnimator3 = AnimatorSet().apply {
-                playTogether(togetherAnimator2, descriptionAnimator)
+                playTogether(togetherAnimator2, noteAnimator)
             }
 
 
             AnimatorSet().apply {
-                playSequentially(imgScanAnimator, descriptionAnimator, togetherAnimator1, buttonUploadAnimator, cekAnimator, refresgAnimator)
-                start()
-            }
-        }
-
-        fun playRiwayatAnimation(binding: FragmentRiwayatBinding) {
-            val itemAnimator = ObjectAnimator.ofFloat(binding.rvStory, View.ALPHA, 1f).setDuration(500)
-
-            AnimatorSet().apply {
-                playSequentially(itemAnimator)
+                playSequentially(imgScanAnimator, noteAnimator, togetherAnimator1, buttonUploadAnimator, cekAnimator, refresgAnimator)
                 start()
             }
         }

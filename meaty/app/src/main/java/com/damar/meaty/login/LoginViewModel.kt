@@ -5,11 +5,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.damar.meaty.api.ApiConfig
+import com.damar.meaty.home.HomeFragment
 import com.damar.meaty.response.LoginResponse
 import com.damar.meaty.response.LoginResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class LoginViewModel : ViewModel() {
 
@@ -28,6 +30,17 @@ class LoginViewModel : ViewModel() {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 _infoError.value = response.isSuccessful.not()
                 _userInfo.value = response.body()?.loginResult
+
+                // Simpan userId ke UserSession setelah mendapatkan respons
+                val userId = response.body()?.loginResult?.userId?.toIntOrNull()
+                HomeFragment.UserSession.userId = userId ?: 0
+                println("User ID: ${HomeFragment.UserSession.userId}")
+
+                println("info: ${_infoError.value}")
+                println("Response Code: ${response.code()}")
+                println("Response Message: ${response.message()}")
+                println("Response Body: ${response.body()}")
+
                 println("info: ${_infoError.value}")
             }
 

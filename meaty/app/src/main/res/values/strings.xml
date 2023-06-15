@@ -46,6 +46,7 @@
     <string name="pref_name">usertoken</string>
     <string name="user_token">user_token</string>
     <string name="upload_token">upload_token</string>
+    <string name="user_id">user_id</string>
     <string name="story_image">Story Image</string>
     <string name="story_preview">Story preview</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -55,7 +56,7 @@
     <string name="back">back</string>
     <string name="created_at">created at</string>
     <string name="created_at_prefix">Create on :</string>
-    <string name="result">To Result</string>
+    <string name="result">View Latest Results</string>
     <string name="gender">Gender</string>
     <string name="region">Region</string>
     <string name="gender_male">Male</string>
@@ -76,6 +77,19 @@
     <string name="change_language">Change Language</string>
     <string name="change_display">Change Display</string>
     <string name="save">Save</string>
+    <string name="first_name">First Name</string>
+    <string name="Last_name">Last Name</string>
+    <string name="time">Time</string>
+    <string name="prediction">Prediction</string>
+    <string name="notes">Notes</string>
+    <string name="waktu_pengambilan">Pick up Date</string>
+    <string name="hasil_prediksi">Prediction Results</string>
+    <string name="note">Note</string>
+    <string name="setting_profil">Setting Profil</string>
+    <string name="hasil_terbaru">Latest Results</string>
+    <string name="error_register">Username Already Registered</string>
+    <string name="data_cleaned">Page Updated - Data Cleared</string>
+
 
     <string-array name="artikel_judul">
         <item>Ciri-Ciri Daging Sapi Segar dan Busuk yang Bisa Anda Amati</item>

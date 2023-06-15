@@ -40,11 +40,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/field_name"
+        android:id="@+id/field_username"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="40dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
@@ -64,44 +64,6 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/ed_register_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="12sp"
-            android:layout_marginStart="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="@color/darkred"
-            android:ems="10"
-            android:hint="@string/name"
-            android:inputType="textPersonName" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/field_username"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="24dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:alpha="0"
-        android:background="@drawable/bg_auten"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/field_name"  >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_baseline_person_24"
-            android:inputType="textShortMessage" />
-
-        <EditText
             android:id="@+id/ed_register_username"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -112,15 +74,15 @@
             android:textColor="@color/darkred"
             android:ems="10"
             android:hint="@string/username"
-            android:inputType="textShortMessage" />
+            android:inputType="textPersonName" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/field_gender"
+        android:id="@+id/field_password"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="40dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
@@ -136,26 +98,30 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_baseline_animation_24"
-            android:inputType="textEmailAddress" />
+            app:srcCompat="@drawable/ic_baseline_key_24"
+            android:inputType="textShortMessage" />
 
-        <Spinner
-            android:id="@+id/spinner_gender"
+        <com.damar.meaty.customview.MyPassword
+            android:id="@+id/ed_register_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="10dp"
             android:textSize="12sp"
             android:fontFamily="@font/poppins_medium"
-            android:textColor="@color/darkred" />
+            android:textColor="@color/darkred"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/field_password"
+            app:layout_constraintTop_toTopOf="@+id/field_password"/>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/field_domisili"
+        android:id="@+id/field_email"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="40dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
@@ -166,7 +132,121 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/field_gender"  >
+        app:layout_constraintTop_toBottomOf="@+id/field_password"  >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_email_24"
+            android:inputType="textShortMessage" />
+
+        <EditText
+            android:id="@+id/ed_register_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/darkred"
+            android:ems="10"
+            android:hint="@string/e_mail"
+            android:inputType="textEmailAddress" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/field_first_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:alpha="0"
+        android:background="@drawable/bg_auten"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/field_email"  >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_person_24"
+            android:inputType="textShortMessage" />
+
+        <EditText
+            android:id="@+id/ed_register_first_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/darkred"
+            android:ems="10"
+            android:hint="@string/first_name"
+            android:inputType="textShortMessage" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/field_last_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:alpha="0"
+        android:background="@drawable/bg_auten"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/field_first_name"  >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_person_24"
+            android:inputType="textShortMessage" />
+
+        <EditText
+            android:id="@+id/ed_register_last_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/darkred"
+            android:ems="10"
+            android:hint="@string/Last_name"
+            android:inputType="textShortMessage" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/field_domisili"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:alpha="0"
+        android:background="@drawable/bg_auten"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/field_last_name"  >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -189,11 +269,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/field_age"
+        android:id="@+id/field_work"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="40dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
@@ -205,45 +285,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/field_domisili" >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_baseline_date_range_24"
-            android:inputType="textShortMessage" />
-
-        <EditText
-            android:id="@+id/ed_register_age"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="12sp"
-            android:layout_marginStart="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="@color/darkred"
-            android:ems="10"
-            android:hint="@string/age"
-            android:inputType="number" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/field_work"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="24dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:alpha="0"
-        android:background="@drawable/bg_auten"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/field_age" >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -266,11 +307,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/field_password"
+        android:id="@+id/field_age"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="40dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
@@ -281,27 +322,61 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/field_work">
+        app:layout_constraintTop_toBottomOf="@+id/field_work" >
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_baseline_key_24"/>
+            app:srcCompat="@drawable/ic_baseline_date_range_24"
+            android:inputType="textShortMessage" />
 
-        <com.damar.meaty.customview.MyPassword
-            android:id="@+id/ed_register_password"
+        <EditText
+            android:id="@+id/ed_register_age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/darkred"
+            android:ems="10"
+            android:hint="@string/age"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/field_gender"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:alpha="0"
+        android:background="@drawable/bg_auten"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/field_age"  >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_baseline_animation_24"
+            android:inputType="textEmailAddress" />
+
+        <Spinner
+            android:id="@+id/spinner_gender"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="10dp"
             android:textSize="12sp"
             android:fontFamily="@font/poppins_medium"
-            android:textColor="@color/darkred"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/field_password"
-            app:layout_constraintTop_toTopOf="@+id/field_password"/>
-
+            android:textColor="@color/darkred" />
     </LinearLayout>
 
     <com.damar.meaty.customview.MyButton
@@ -319,7 +394,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/field_password"
+        app:layout_constraintTop_toBottomOf="@+id/field_gender"
         app:layout_constraintVertical_bias="0.069" />
 
     <TextView
@@ -327,7 +402,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="16dp"
         android:textSize="16sp"
         android:alpha="0"
@@ -343,7 +418,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:textSize="16sp"
         android:alpha="0"
         android:text="@string/login"

@@ -60,6 +60,7 @@ class HomeFragment : Fragment() {
             val navView: BottomNavigationView = requireActivity().findViewById(R.id.bottomNavigationView)
             navView.menu.findItem(R.id.navigation_artikel).isChecked = true
         }
+
     }
 
 
@@ -155,5 +156,9 @@ class HomeFragment : Fragment() {
 
     companion object {
         var USER_TOKEN: String? = "USER_TOKEN"
+    }
+
+    object UserSession {
+        var userId: Int = 0
     }
 }

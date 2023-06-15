@@ -1,3 +1,19 @@
+    private fun navigateToAddStoryFragment() {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.av_host_fragment_activity_main, AddScanFragment())
+            .commit()
+    }
+
+    private fun navigateToListStoryFragment() {
+        val intentList = Intent(requireContext(), MainActivity::class.java)
+        startActivity(intentList)
+    }
+
+    private fun clearPage() {
+        binding.edAddNotes.text?.clear()
+        getImgFile = null
+    }
+
 artikel
 
 class ArtikelFragment : Fragment() {

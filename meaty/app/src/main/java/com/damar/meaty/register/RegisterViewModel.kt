@@ -17,8 +17,19 @@ class RegisterViewModel : ViewModel() {
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
 
-    fun createUser(pName: String, pEmail: String, pPassword: String) {
-        val client = ApiConfig.getApiService().userRegister(pName, pEmail, pPassword)
+    //        "username": "haloaja",
+//        "password": "haloaja",
+//        "email": "haloaja@example.com",
+//        "first_name": "Halo",
+//        "last_name": "Aja",
+//        "domisili": "Jakarta",
+//        "pekerjaan": "CFO",
+//        "usia": 20,
+//        "gender": "P"
+//    }
+
+    fun createUser(pUsername: String, pPassword: String, pEmail: String, pFirstName: String, pLastName: String, pDomisili: String, pPekerjaan: String, pUsia: Int, pGender: String) {
+        val client = ApiConfig.getApiService().userRegister(pUsername, pPassword, pEmail, pFirstName, pLastName, pDomisili, pPekerjaan, pUsia, pGender)
         client.enqueue(object : Callback<RegisterResponse> {
             override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
                 when {

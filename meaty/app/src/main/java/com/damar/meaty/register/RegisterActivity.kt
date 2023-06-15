@@ -39,7 +39,7 @@ class RegisterActivity : AppCompatActivity() {
             when (error) {
                 true -> {
                     val errorMessage = regisViewModel.errorMessage.value
-                    Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.error_register), Toast.LENGTH_SHORT).show()
                 }
                 false -> {
                     val loginIntent = Intent(this@RegisterActivity, LoginActivity::class.java)
@@ -60,21 +60,23 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val name = binding.edRegisterName.text.toString()
             val username = binding.edRegisterUsername.text.toString()
             val password = binding.edRegisterPassword.text.toString()
-            val gender = binding.spinnerGender.selectedItem.toString()
+            val email = binding.edRegisterEmail.text.toString()
+            val firstName = binding.edRegisterFirstName.text.toString()
+            val lastName = binding.edRegisterLastName.text.toString()
             val domisili = binding.edRegisterDomisili.text.toString()
+            val work = binding.edRegisterWork.text.toString()
             val ageText = binding.edRegisterAge.text.toString()
             val age = if (ageText.isNotEmpty()) {
                 ageText.toIntOrNull() ?: 0
             } else {
                 0
             }
-            val work = binding.edRegisterWork.text.toString()
+            val gender = binding.spinnerGender.selectedItem.toString()
 
             when {
-                name.isEmpty() || username.isEmpty() || gender.isEmpty() || domisili.isEmpty() || age == 0 || work.isEmpty() || password.isEmpty() -> {
+                username.isEmpty() || password.isEmpty() || email.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || domisili.isEmpty() || work.isEmpty()  || age == 0|| gender.isEmpty() -> {
                     Toast.makeText(this, R.string.error_field_empty, Toast.LENGTH_SHORT).show()
                 }
                 password.length < 8 -> {
@@ -82,7 +84,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 else -> {
                     //nanti jangan lupa tambahkan pengiriman gender, domisili, umur, dan work
-                    regisViewModel.createUser(name, username, password)
+                    regisViewModel.createUser(username, password, email, firstName, lastName, domisili, work, age, gender)
                     showLoading(true)
                     buttonOn(false)
                 }

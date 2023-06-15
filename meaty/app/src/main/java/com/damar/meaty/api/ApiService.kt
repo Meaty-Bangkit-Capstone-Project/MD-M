@@ -1,20 +1,26 @@
 package com.damar.meaty.api
 
-import com.damar.meaty.response.LoginResponse
-import com.damar.meaty.response.RegisterResponse
-import com.damar.meaty.response.StoriesResponse
+import com.damar.meaty.response.*
+import kotlinx.coroutines.Deferred
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiService {
     @FormUrlEncoded
-    @POST("register")
+    @POST("register/")
     fun userRegister(
-        @Field("name") name: String,
+        @Field("username") username: String,
+        @Field("password") password: String,
         @Field("email") email: String,
-        @Field("password") password: String
+        @Field("first_name") first_name: String,
+        @Field("last_name") last_name: String,
+        @Field("domisili") domisili: String,
+        @Field("pekerjaan") pekerjaan: String,
+        @Field("usia") usia: Int,
+        @Field("gender") gender: String
     ): Call<RegisterResponse>
 
     @FormUrlEncoded
@@ -24,18 +30,15 @@ interface ApiService {
         @Field("password") password: String
     ): Call<LoginResponse>
 
-    @GET("stories")
-    suspend fun getAllStory(
-        @Header("Authorization") token: String,
-        @Query("page") page: Int,
-        @Query("size") size: Int
-    ): StoriesResponse
-
     @Multipart
-    @POST("stories")
-    fun addStory(
+    @POST("upload/")
+    fun addImage(
         @Header("Authorization") token: String,
-        @Part("description") description: RequestBody,
-        @Part photo: MultipartBody.Part
-    ): Call<RegisterResponse>
+        @Part("notes") notes: RequestBody,
+        @Part image: MultipartBody.Part
+    ): Call<UploadResponse>
+
+    @GET("history/{userId}/")
+    fun getHistory(@Path("userId") userId: Int): Call<ArrayList<HistoryResponse>>
+
 }

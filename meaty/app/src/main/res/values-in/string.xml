@@ -13,6 +13,8 @@
     <string name="sign_up">Sign Up</string>
     <string name="more_menu">Menu lainnya</string>
     <string name="description">Deskripsi</string>
+    <string name="first_name">Nama Depan</string>
+    <string name="Last_name">Nama Belakang</string>
 
     <string name="authority">com.damar.meaty</string>
     <string name="no_permission">Tidak mendapatkan permission</string>
@@ -43,6 +45,7 @@
     <string name="pref_name">usertoken</string>
     <string name="user_token">user_token</string>
     <string name="upload_token">upload_token</string>
+    <string name="user_id">user_id</string>
     <string name="story_image">Story Image</string>
     <string name="story_preview">Story preview</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -52,7 +55,7 @@
     <string name="back">Kembali</string>
     <string name="created_at">Dibuat di</string>
     <string name="created_at_prefix">Create pada :</string>
-    <string name="result">Lihat Hasil</string>
+    <string name="result">Lihat Hasil Terbaru</string>
     <string name="gender">Jenis kelamin</string>
     <string name="region">Kota/Kabupaten</string>
     <string name="gender_male">Laki laki</string>
@@ -76,5 +79,15 @@
     <string name="change_display">Ubah Tampilan</string>
     <string name="success_save">Berhasil Menyimpan</string>
     <string name="save">Simpan</string>
+    <string name="time">Waktu</string>
+    <string name="prediction">Prediksi</string>
+    <string name="notes">Catatan</string>
+    <string name="waktu_pengambilan">Tanggal Pengambilan</string>
+    <string name="hasil_prediksi">Hasil Prediksi</string>
+    <string name="note">Catatan</string>
+    <string name="setting_profil">Seting Profil</string>
+    <string name="hasil_terbaru">Hasil Terbaru</string>
+    <string name="error_register">Username Sudah Terdaftar</string>
+    <string name="data_cleaned">Halaman Diperbarui - Data Dibersihkan</string>
 
 </resources>

@@ -37,7 +37,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_add_description" />
+            app:layout_constraintTop_toBottomOf="@+id/ed_add_notes" />
 
         <com.damar.meaty.customview.MyButton
             android:id="@+id/button_gallery"
@@ -52,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/ed_add_description" />
+            app:layout_constraintTop_toBottomOf="@+id/ed_add_notes" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -62,7 +62,7 @@
             app:layout_constraintGuide_begin="205dp" />
 
         <EditText
-            android:id="@+id/ed_add_description"
+            android:id="@+id/ed_add_notes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -71,7 +71,7 @@
             android:ems="10"
             android:alpha="0"
             android:gravity="start|top"
-            android:hint="@string/description"
+            android:hint="Notes"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

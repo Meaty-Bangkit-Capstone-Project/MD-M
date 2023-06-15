@@ -18,8 +18,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.damar.meaty.R
 import com.damar.meaty.customview.AnimationUtil
-import com.damar.meaty.databinding.FragmentArtikelBinding
-import com.damar.meaty.databinding.FragmentHomeBinding
 import com.damar.meaty.local.Artikel
 import com.damar.meaty.login.LoginActivity
 import com.damar.meaty.setting.SettingActivity

@@ -24,9 +24,9 @@
 
     <fragment
         android:id="@+id/navigation_riwayat"
-        android:name="com.damar.meaty.riwayat.RiwayatFragment"
+        android:name="com.damar.meaty.riwayat.HistoryFragment"
         android:label="Riwayat"
-        tools:layout="@layout/fragment_riwayat" />
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_profil"
